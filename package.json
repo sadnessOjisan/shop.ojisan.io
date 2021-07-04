@@ -4,7 +4,14 @@
   "description": "おじさん's セレクトショップ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck:ci": "tsc --noEmit",
+    "lint:ci": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "format:ci": "prettier --check 'src/**/*.{ts,tsx}'",
+    "format:fix": "prettier --write 'src/**/*.{ts,tsx}'",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -23,6 +30,14 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.13",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "prettier": "^2.3.2",
     "typescript": "^4.3.5"
   }
 }
