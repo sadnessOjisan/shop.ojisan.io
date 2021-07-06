@@ -1,10 +1,7 @@
 on:
-  push:
-    branches:
-      - "*"
-      - "*/*"
-      - "**"
-      - "!main"
+  repository_dispatch:
+    types: [upd]
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,9 +15,5 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install npm packages
         run: npm install
-      - name: typecheck
-        run: npm run typecheck:ci
-      - name: lint
-        run: npm run lint:ci
-      - name: format
-        run: npm run format:ci
+      - name: build
+        run: npm run build
