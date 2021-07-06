@@ -1,0 +1,19 @@
+on:
+  repository_dispatch:
+    types: [upd]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: "https://registry.npmjs.org"
+      - name: Install npm packages
+        run: npm install
+      - name: build
+        run: npm run build
