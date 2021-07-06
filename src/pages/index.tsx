@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import { VFC } from "react";
+
 import { repository } from "../repository";
 
 type Props = {
