@@ -15,5 +15,11 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install npm packages
         run: npm install
-      - name: build
-        run: npm run build
+      - run: npm run build
+      - run: npm run export
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHOP_OJISAN_IO }}'
+          channelId: live
+          projectId: shop-ojisan-io
