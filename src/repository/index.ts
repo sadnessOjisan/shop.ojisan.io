@@ -6,6 +6,6 @@ export const repository = {
        }
      })
      const data = await res.json()
-     console.log(data)
+     return data
     }
 }

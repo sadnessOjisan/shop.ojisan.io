@@ -14,7 +14,10 @@ const TopPage:VFC<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const data = await repository.getAllItems()
+  console.log(data)
   return {props: {
     data
   }}
 }
+
+export default TopPage
