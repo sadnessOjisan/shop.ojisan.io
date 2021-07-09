@@ -35,13 +35,12 @@ export const validator = {
     return schema.ShopItemsSchema.parse(data);
   },
   validateShopItem: (data: unknown) => {
-      return schema.ShopItemSchema.parse(data)
+    return schema.ShopItemSchema.parse(data);
   },
   validateShopItemIds: (data: unknown) => {
     return schema.ShopItemIdsSchema.parse(data);
   },
-
 };
 
 export type ShopItems = z.infer<typeof schema.ShopItemsSchema>;
-export type ShopItem = z.infer<typeof schema.ShopItemSchema>
+export type ShopItem = z.infer<typeof schema.ShopItemSchema>;
