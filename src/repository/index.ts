@@ -1,3 +1,5 @@
+import { validator } from "../validator";
+
 export const repository = {
   getAllItems: async () => {
     const res = await fetch(
@@ -9,6 +11,7 @@ export const repository = {
       }
     );
     const data = await res.json();
-    return data;
+    const validated = validator.validateShopItems(data)
+    return validated;
   },
 };
