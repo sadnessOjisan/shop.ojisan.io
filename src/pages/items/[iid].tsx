@@ -17,10 +17,13 @@ const TopPage: VFC<Props> = (props) => {
       {props.data.images.map((image) => (
         <img key={image.image.url} src={image.image.url} />
       ))}
-      <a href="" target="_blank" rel='noreferrer'>
-      <button>申し込む</button>
+      <a href="" target="_blank" rel="noreferrer">
+        <button>申し込む</button>
       </a>
-      <p>※Google form からの申し込み以外にも Twitter DM からの申し込みも受け付けております。</p>
+      <p>
+        ※Google form からの申し込み以外にも Twitter DM
+        からの申し込みも受け付けております。
+      </p>
     </div>
   );
 };

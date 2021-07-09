@@ -3,7 +3,11 @@ import { z } from "zod";
 const ShopItemSchema = z.object({
   id: z.string(),
   name: z.string(),
-  status: z.union([z.literal('販売中'), z.literal('商談中'), z.literal('売り切れ')]),
+  status: z.union([
+    z.literal("販売中"),
+    z.literal("商談中"),
+    z.literal("売り切れ"),
+  ]),
   images: z.array(
     z.object({
       image: z.object({ url: z.string() }),
