@@ -16,7 +16,9 @@ const TopPage: VFC<Props> = (props) => {
         <Link href={`/items/${d.id}`} key={d.id}>
           <a>
             <h2>{d.name}</h2>
-            <img src={d.image.url} />{" "}
+            {d.images.map((image) => (
+              <img key={image.image.url} src={image.image.url} />
+            ))}
           </a>
         </Link>
       ))}

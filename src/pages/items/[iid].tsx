@@ -12,7 +12,9 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <div>
       <h2>{props.data.name}</h2>
-      <img src={props.data.image.url}></img>
+      {props.data.images.map((image) => (
+        <img key={image.image.url} src={image.image.url} />
+      ))}
     </div>
   );
 };

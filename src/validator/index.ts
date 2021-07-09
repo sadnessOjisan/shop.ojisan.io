@@ -6,9 +6,11 @@ const schema = {
       z.object({
         id: z.string(),
         name: z.string(),
-        image: z.object({
-          url: z.string(),
-        }),
+        images: z.array(
+          z.object({
+            image: z.object({ url: z.string() }),
+          })
+        ),
         createdAt: z.string(),
       })
     ),
@@ -16,9 +18,11 @@ const schema = {
   ShopItemSchema: z.object({
     id: z.string(),
     name: z.string(),
-    image: z.object({
-      url: z.string(),
-    }),
+    images: z.array(
+      z.object({
+        image: z.object({ url: z.string() }),
+      })
+    ),
     createdAt: z.string(),
   }),
   ShopItemIdsSchema: z.object({
