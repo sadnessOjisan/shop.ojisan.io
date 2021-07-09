@@ -1,37 +1,34 @@
 import { z } from "zod";
 
+const ShopItemSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  status: z.union([z.literal('販売中'), z.literal('商談中'), z.literal('売り切れ')]),
+  images: z.array(
+    z.object({
+      image: z.object({ url: z.string() }),
+    })
+  ),
+  price: z.number(),
+  createdAt: z.string(),
+});
+
+const ShopItemsSchema = z.object({
+  contents: z.array(ShopItemSchema),
+});
+
+const ShopItemIdsSchema = z.object({
+  contents: z.array(
+    z.object({
+      id: z.string(),
+    })
+  ),
+});
+
 const schema = {
-  ShopItemsSchema: z.object({
-    contents: z.array(
-      z.object({
-        id: z.string(),
-        name: z.string(),
-        images: z.array(
-          z.object({
-            image: z.object({ url: z.string() }),
-          })
-        ),
-        createdAt: z.string(),
-      })
-    ),
-  }),
-  ShopItemSchema: z.object({
-    id: z.string(),
-    name: z.string(),
-    images: z.array(
-      z.object({
-        image: z.object({ url: z.string() }),
-      })
-    ),
-    createdAt: z.string(),
-  }),
-  ShopItemIdsSchema: z.object({
-    contents: z.array(
-      z.object({
-        id: z.string(),
-      })
-    ),
-  }),
+  ShopItemsSchema,
+  ShopItemSchema,
+  ShopItemIdsSchema,
 };
 
 export const validator = {

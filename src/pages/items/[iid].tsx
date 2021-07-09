@@ -12,9 +12,15 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <div>
       <h2>{props.data.name}</h2>
+      <span>{props.data.status}</span>
+      <span>{props.data.price}</span>
       {props.data.images.map((image) => (
         <img key={image.image.url} src={image.image.url} />
       ))}
+      <a href="" target="_blank" rel='noreferrer'>
+      <button>申し込む</button>
+      </a>
+      <p>※Google form からの申し込み以外にも Twitter DM からの申し込みも受け付けております。</p>
     </div>
   );
 };
