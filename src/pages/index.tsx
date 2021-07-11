@@ -1,7 +1,8 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import { VFC } from "react";
 
+import { ItemListItem } from "../components/item-list-item";
 import { repository } from "../repository";
 import { rootPageStyles } from "../style/index.css";
 import { ShopItems } from "../validator";
@@ -15,12 +16,20 @@ const TopPage: VFC<Props> = (props) => {
     <div className={rootPageStyles.wrapper}>
       {props.data.contents.map((d) => (
         <Link href={`/items/${d.id}`} key={d.id}>
-          <a>
-            <h2>{d.name}</h2>
-            {d.images.map((image) => (
-              <img key={image.image.url} src={image.image.url} />
-            ))}
-          </a>
+          <ItemListItem
+            data={{
+              id: d.id,
+              name: d.name,
+              price: d.price,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              categories: d.categories,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              images: d.images,
+              description: d.description,
+            }}
+          />
         </Link>
       ))}
     </div>
