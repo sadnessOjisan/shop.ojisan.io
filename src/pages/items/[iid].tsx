@@ -1,7 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { VFC } from "react";
+import { Layout } from "../../components/layout";
+import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 
 import { repository } from "../../repository";
+import { itemDetailPageStyle } from "../../style/item-detail-page.css";
 import { ShopItem } from "../../validator";
 
 type Props = {
@@ -9,13 +12,25 @@ type Props = {
 };
 
 const TopPage: VFC<Props> = (props) => {
+  const { selectedImage, setSelectedImageIdx } = useItemDetailPage(
+    props.data.images
+  );
   return (
-    <div>
+    <Layout>
       <h2>{props.data.name}</h2>
       <span>{props.data.status}</span>
       <span>{props.data.price}</span>
-      {props.data.images.map((image) => (
-        <img key={image.image.url} src={image.image.url} />
+      <img
+        src={selectedImage.image.url}
+        className={itemDetailPageStyle.selectedImage}
+      />
+      {props.data.images.map((image, idx) => (
+        <img
+          className={itemDetailPageStyle.imageTile}
+          key={image.image.url}
+          src={image.image.url}
+          onClick={() => setSelectedImageIdx(idx)}
+        />
       ))}
       <a href="" target="_blank" rel="noreferrer">
         <button>申し込む</button>
@@ -24,7 +39,7 @@ const TopPage: VFC<Props> = (props) => {
         ※Google form からの申し込み以外にも Twitter DM
         からの申し込みも受け付けております。
       </p>
-    </div>
+    </Layout>
   );
 };
 

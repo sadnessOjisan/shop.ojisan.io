@@ -3,6 +3,7 @@ import Link from "next/link";
 import { VFC } from "react";
 
 import { ItemListItem } from "../components/item-list-item";
+import { Layout } from "../components/layout";
 import { repository } from "../repository";
 import { rootPageStyles } from "../style/index.css";
 import { ShopItems } from "../validator";
@@ -14,25 +15,27 @@ type Props = {
 const TopPage: VFC<Props> = (props) => {
   return (
     <div className={rootPageStyles.wrapper}>
-      {props.data.contents.map((d) => (
-        <Link href={`/items/${d.id}`} key={d.id}>
-          <a>
-            <ItemListItem
-              data={{
-                id: d.id,
-                name: d.name,
-                price: d.price,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                categories: d.categories,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                images: d.images,
-              }}
-            />
-          </a>
-        </Link>
-      ))}
+      <Layout>
+        {props.data.contents.map((d) => (
+          <Link href={`/items/${d.id}`} key={d.id}>
+            <a>
+              <ItemListItem
+                data={{
+                  id: d.id,
+                  name: d.name,
+                  price: d.price,
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  categories: d.categories,
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  images: d.images,
+                }}
+              />
+            </a>
+          </Link>
+        ))}
+      </Layout>
     </div>
   );
 };
