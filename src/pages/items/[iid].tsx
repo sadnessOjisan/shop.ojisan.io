@@ -77,15 +77,20 @@ const TopPage: VFC<Props> = (props) => {
             <div className={itemDetailPageStyle.inputrow}>
               <input
                 type="checkbox"
-                style={{ marginRight: 8 }}
                 id="confirm"
                 onChange={handleChangeConfirmCheckBox}
+                className={itemDetailPageStyle.input}
               />
-              <label htmlFor="confirm">確認して、同意した</label>
+              <label
+                htmlFor="confirm"
+                className={itemDetailPageStyle.inputrowLabel}
+              >
+                確認して、同意した
+              </label>
             </div>
           </div>
         )}
-        <div>
+        <div className={itemDetailPageStyle.info}>
           <a
             href=""
             target="_blank"
