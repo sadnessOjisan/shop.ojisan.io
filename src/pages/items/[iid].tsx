@@ -38,10 +38,8 @@ const TopPage: VFC<Props> = (props) => {
               key={image.image.url}
               className={itemDetailPageStyle.imageWrapper}
             >
-              <Image
+              <img
                 className={itemDetailPageStyle.imageTile}
-                width={120}
-                height={120}
                 src={image.image.url}
                 onClick={() => setSelectedImageIdx(idx)}
               />

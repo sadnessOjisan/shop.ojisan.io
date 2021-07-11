@@ -19,7 +19,7 @@ export const itemDetailPageStyle = {
     width: 360,
     margin: "auto",
   }),
-  imageTile: style({}),
+  imageTile: style({ width: 120, height: 120 }),
   imageWrapper: style({}),
   applyButton: style({
     width: "200px",
