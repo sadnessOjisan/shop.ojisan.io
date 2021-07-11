@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
-
+import Head from "next/head";
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
 import { META_TAG_CONTENT } from "../../const";
@@ -25,18 +25,25 @@ const TopPage: VFC<Props> = (props) => {
   } = useItemDetailPage(props.data.images);
   return (
     <Layout>
-      <meta
-        property="og:url"
-        content={`${META_TAG_CONTENT.origin}/items/${props.data.id}`}
-      />
-      <meta property="og:type" content="website" />
-      <meta
-        property="og:title"
-        content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}`}
-      />
-      <meta property="og:description" content={props.data.description} />
-      <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
-      <meta property="og:image" content={`${props.data.images[0].image.url}`} />
+      <Head>
+        <title>{META_TAG_CONTENT.siteTitle}</title>
+        <meta
+          property="og:url"
+          content={`${META_TAG_CONTENT.origin}/items/${props.data.id}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}。sadnessOjisan の不用品を購入できるサイトです。`}
+        />
+        <meta property="og:description" content={props.data.description} />
+        <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
+        <meta
+          property="og:image"
+          content={`${props.data.images[0].image.url}`}
+        />
+      </Head>
+
       <div className={itemDetailPageStyle.wrapper}>
         <h2 className={itemDetailPageStyle.title}>{props.data.name}</h2>
         <Tags
