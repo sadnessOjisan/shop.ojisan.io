@@ -7,6 +7,7 @@ import { Tags } from "../../components/tags";
 import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
+import { createPriceString } from "../../util/price";
 import { ShopItem } from "../../validator";
 
 type Props = {
@@ -48,7 +49,9 @@ const TopPage: VFC<Props> = (props) => {
         </div>
         <div className={itemDetailPageStyle.info}>
           <span>{props.data.status}</span>
-          <span className={itemDetailPageStyle.price}>{props.data.price}</span>
+          <span className={itemDetailPageStyle.price}>
+            {createPriceString(props.data.price)}
+          </span>
         </div>
         <div>
           <a

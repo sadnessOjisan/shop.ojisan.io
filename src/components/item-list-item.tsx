@@ -1,6 +1,7 @@
 import { VFC } from "react";
 
 import { itemListItemStyles } from "../style/item-list-item.css";
+import { createPriceString } from "../util/price";
 import { Tags } from "./tags";
 
 type Props = {
@@ -28,7 +29,7 @@ export const ItemListItem: VFC<Props> = (props) => {
           {props.data.name}
         </span>
         <span className={itemListItemStyles.infoBoxItem}>
-          {props.data.price}円
+          {createPriceString(props.data.price)}
         </span>
         <Tags
           tags={props.data.categories}
