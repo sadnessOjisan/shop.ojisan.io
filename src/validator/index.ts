@@ -15,6 +15,8 @@ const ShopItemSchema = z.object({
   ),
   price: z.number(),
   createdAt: z.string(),
+  description: z.string(),
+  categories: z.array(z.object({ id: z.string(), name: z.string() })),
 });
 
 const ShopItemsSchema = z.object({
@@ -47,5 +49,5 @@ export const validator = {
   },
 };
 
-export type ShopItems = z.infer<typeof schema.ShopItemsSchema>;
+export type ShopItems = z.infer<Required<typeof schema.ShopItemsSchema>>;
 export type ShopItem = z.infer<typeof schema.ShopItemSchema>;
