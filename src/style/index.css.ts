@@ -2,7 +2,18 @@ import { style } from "@vanilla-extract/css";
 
 export const rootPageStyles = {
   wrapper: style({}),
-  keyVisual: style({ width: "100%" }),
+  keyVisual: style({
+    width: "100%",
+    "@media": {
+      "screen and (min-width: 768px)": {
+        padding: "0px 160px",
+        background: "#ffffff",
+        marginTop: 24,
+        height: 320,
+        objectFit: "cover",
+      },
+    },
+  }),
   itemLink: style({
     textDecoration: "none",
     color: "initial",
