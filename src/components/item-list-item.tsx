@@ -1,6 +1,7 @@
 import { VFC } from "react";
 
 import { itemListItemStyles } from "../style/item-list-item.css";
+import { Tags } from "./tags";
 
 type Props = {
   className: string;
@@ -29,15 +30,10 @@ export const ItemListItem: VFC<Props> = (props) => {
         <span className={itemListItemStyles.infoBoxItem}>
           {props.data.price}円
         </span>
-        <span
-          className={`${itemListItemStyles.infoBoxItem} ${itemListItemStyles.tips}`}
-        >
-          {props.data.categories.map((c) => (
-            <div key={c.id} className={itemListItemStyles.category}>
-              {c.name}
-            </div>
-          ))}
-        </span>
+        <Tags
+          tags={props.data.categories}
+          className={itemListItemStyles.tips}
+        />
       </div>
     </div>
   );
