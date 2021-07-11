@@ -94,7 +94,13 @@ const TopPage: VFC<Props> = (props) => {
             <p className={itemDetailPageStyle.term}>
               申し込む前に
               <Link href="/about">
-                <a className={itemDetailPageStyle.link}>このサイトについて</a>
+                <a
+                  className={itemDetailPageStyle.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  このサイトについて
+                </a>
               </Link>
               をご確認・ご同意ください。
             </p>
