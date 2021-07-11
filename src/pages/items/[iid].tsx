@@ -56,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const itemId = context.params["iid"];
+  const itemId = context.params ? context.params["iid"] : undefined;
   if (typeof itemId !== "string") throw new Error("invalid path");
   const data = await repository.getItemById(itemId);
   return {
