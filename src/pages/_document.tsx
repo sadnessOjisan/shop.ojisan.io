@@ -26,25 +26,6 @@ class MyDocument extends Document {
         <Head>
           <style>{css}</style>
           <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <meta property="og:url" content={`${META_TAG_CONTENT.origin}`} />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={META_TAG_CONTENT.siteTitle} />
-          <meta
-            property="og:description"
-            content={META_TAG_CONTENT.description}
-          />
-          <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
-          <meta
-            property="og:image"
-            content={`${META_TAG_CONTENT.origin}/shop.png`}
-          />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content={META_TAG_CONTENT.twitterName} />
-          <meta name="twitter:creator" content={META_TAG_CONTENT.twitterName} />
         </Head>
         <body>
           <Main />

@@ -43,6 +43,9 @@ const TopPage: VFC<Props> = (props) => {
           property="og:image"
           content={`${props.data.images[0].image.url}`}
         />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={META_TAG_CONTENT.twitterName} />
+        <meta name="twitter:creator" content={META_TAG_CONTENT.twitterName} />
       </Head>
 
       <div className={itemDetailPageStyle.wrapper}>
