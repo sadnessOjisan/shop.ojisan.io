@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
-import Head from "next/head";
+
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
 import { META_TAG_CONTENT } from "../../const";
