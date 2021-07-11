@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { VFC } from "react";
+
 import { footerStyle } from "../style/footer.css";
 
 export const Footer: VFC = () => (
