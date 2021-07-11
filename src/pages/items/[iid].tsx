@@ -5,6 +5,7 @@ import { VFC } from "react";
 
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
+import { META_TAG_CONTENT } from "../../const";
 import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
@@ -24,6 +25,18 @@ const TopPage: VFC<Props> = (props) => {
   } = useItemDetailPage(props.data.images);
   return (
     <Layout>
+      <meta
+        property="og:url"
+        content={`${META_TAG_CONTENT.origin}/items/${props.data.id}`}
+      />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}`}
+      />
+      <meta property="og:description" content={props.data.description} />
+      <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
+      <meta property="og:image" content={`${props.data.images[0].image.url}`} />
       <div className={itemDetailPageStyle.wrapper}>
         <h2 className={itemDetailPageStyle.title}>{props.data.name}</h2>
         <Tags
