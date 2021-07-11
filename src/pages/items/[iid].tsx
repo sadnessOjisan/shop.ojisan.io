@@ -124,10 +124,7 @@ const TopPage: VFC<Props> = (props) => {
           </div>
         )}
         <div className={itemDetailPageStyle.info}>
-          <a
-            href=""
-            target="_blank"
-            rel="noreferrer"
+          <span
             className={itemDetailPageStyle.applyLink}
             style={{
               pointerEvents:
@@ -139,15 +136,20 @@ const TopPage: VFC<Props> = (props) => {
             <button
               className={itemDetailPageStyle.applyButton}
               disabled={props.data.status === "売り切れ" || !isConfirmed}
+              onClick={() => {
+                alert(
+                  "konekoneko6789@gmail.com に 購入希望の商品URLをメールして下さい。"
+                );
+              }}
             >
               申し込む
             </button>
-          </a>
+          </span>
         </div>
 
         <p className={itemDetailPageStyle.sideNote}>
-          ※Google form からの申し込み以外にも Twitter DM
-          からの申し込みも受け付けております。
+          ※Twitter DM / Discord / Messenger
+          などからの申し込みも受け付けております。
         </p>
       </div>
     </Layout>
