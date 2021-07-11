@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
 
@@ -16,26 +17,30 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <div className={rootPageStyles.wrapper}>
       <Layout>
-        {props.data.contents.map((d) => (
-          <Link href={`/items/${d.id}`} key={d.id}>
-            <a className={rootPageStyles.itemLink}>
-              <ItemListItem
-                className={rootPageStyles.itemListWrapper}
-                data={{
-                  id: d.id,
-                  name: d.name,
-                  price: d.price,
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  categories: d.categories,
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  images: d.images,
-                }}
-              />
-            </a>
-          </Link>
-        ))}
+        <img src="/shop.png" className={rootPageStyles.keyVisual} />
+        <h2 className={rootPageStyles.title}>ITEMS</h2>
+        <div className={rootPageStyles.items}>
+          {props.data.contents.map((d) => (
+            <Link href={`/items/${d.id}`} key={d.id}>
+              <a className={rootPageStyles.itemLink}>
+                <ItemListItem
+                  className={rootPageStyles.itemListWrapper}
+                  data={{
+                    id: d.id,
+                    name: d.name,
+                    price: d.price,
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    categories: d.categories,
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    images: d.images,
+                  }}
+                />
+              </a>
+            </Link>
+          ))}
+        </div>
       </Layout>
     </div>
   );

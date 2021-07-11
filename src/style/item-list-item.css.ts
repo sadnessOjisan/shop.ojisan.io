@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 export const itemListItemStyles = {
   wrapper: style({ display: "flex", height: "120px", alignItems: "center" }),
-  image: style({ width: "160px", height: "90px", objectFit: "contain" }),
+  image: style({ width: "120px", height: "120px", objectFit: "contain" }),
   infoBox: style({
     display: "flex",
     flexDirection: "column",
