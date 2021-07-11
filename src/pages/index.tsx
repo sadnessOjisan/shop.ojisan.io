@@ -16,20 +16,21 @@ const TopPage: VFC<Props> = (props) => {
     <div className={rootPageStyles.wrapper}>
       {props.data.contents.map((d) => (
         <Link href={`/items/${d.id}`} key={d.id}>
-          <ItemListItem
-            data={{
-              id: d.id,
-              name: d.name,
-              price: d.price,
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              categories: d.categories,
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              images: d.images,
-              description: d.description,
-            }}
-          />
+          <a>
+            <ItemListItem
+              data={{
+                id: d.id,
+                name: d.name,
+                price: d.price,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                categories: d.categories,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                images: d.images,
+              }}
+            />
+          </a>
         </Link>
       ))}
     </div>

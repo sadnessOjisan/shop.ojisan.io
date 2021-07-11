@@ -1,5 +1,7 @@
 import { VFC } from "react";
 
+import { itemListItemStyles } from "../style/item-list-item.css";
+
 type Props = {
   data: {
     id: string;
@@ -11,9 +13,8 @@ type Props = {
 };
 
 export const ItemListItem: VFC<Props> = (props) => {
-  console.log(props);
   return (
-    <div>
+    <div className={itemListItemStyles.wrapper}>
       <span>{props.data.name}</span>
       <span>{props.data.price}円</span>
       <span>
@@ -22,7 +23,11 @@ export const ItemListItem: VFC<Props> = (props) => {
         ))}
       </span>
       {props.data.images.map((image) => (
-        <img src={image.image.url} key={image.image.url}></img>
+        <img
+          src={image.image.url}
+          key={image.image.url}
+          className={itemListItemStyles.image}
+        ></img>
       ))}
     </div>
   );
