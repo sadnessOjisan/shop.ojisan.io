@@ -51,4 +51,16 @@ export const itemDetailPageStyle = {
     margin: "32px 0px",
   }),
   sideNote: style({ fontSize: 12, color: "gray" }),
+  link: style({
+    fontWeight: "bold",
+    textDecoration: "underline",
+    ":visited": {
+      color: "initial",
+    },
+  }),
+  inputrow: style({
+    marginTop: 8,
+    display: "flex",
+    alignItems: "center",
+  }),
 };

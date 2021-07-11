@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { VFC } from "react";
 
 import { Layout } from "../../components/layout";
@@ -15,9 +16,12 @@ type Props = {
 };
 
 const TopPage: VFC<Props> = (props) => {
-  const { selectedImage, setSelectedImageIdx } = useItemDetailPage(
-    props.data.images
-  );
+  const {
+    selectedImage,
+    setSelectedImageIdx,
+    isConfirmed,
+    handleChangeConfirmCheckBox,
+  } = useItemDetailPage(props.data.images);
   return (
     <Layout>
       <div className={itemDetailPageStyle.wrapper}>
@@ -53,6 +57,26 @@ const TopPage: VFC<Props> = (props) => {
             {createPriceString(props.data.price)}
           </span>
         </div>
+        {props.data.status !== "売り切れ" && (
+          <div className={itemDetailPageStyle.info}>
+            <p>
+              申し込む前に
+              <Link href="/about">
+                <a className={itemDetailPageStyle.link}>このサイトについて</a>
+              </Link>
+              をご確認ください。
+            </p>
+            <div className={itemDetailPageStyle.inputrow}>
+              <input
+                type="checkbox"
+                style={{ marginRight: 8 }}
+                id="confirm"
+                onChange={handleChangeConfirmCheckBox}
+              />
+              <label htmlFor="confirm">確認した</label>
+            </div>
+          </div>
+        )}
         <div>
           <a
             href=""
@@ -61,12 +85,14 @@ const TopPage: VFC<Props> = (props) => {
             className={itemDetailPageStyle.applyLink}
             style={{
               pointerEvents:
-                props.data.status === "売り切れ" ? "none" : "initial",
+                props.data.status === "売り切れ" || !isConfirmed
+                  ? "none"
+                  : "initial",
             }}
           >
             <button
               className={itemDetailPageStyle.applyButton}
-              disabled={props.data.status === "売り切れ"}
+              disabled={props.data.status === "売り切れ" || !isConfirmed}
             >
               申し込む
             </button>
