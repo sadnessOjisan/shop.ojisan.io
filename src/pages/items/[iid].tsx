@@ -25,7 +25,7 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <Layout>
       <div className={itemDetailPageStyle.wrapper}>
-        <h2>{props.data.name}</h2>
+        <h2 className={itemDetailPageStyle.title}>{props.data.name}</h2>
         <Tags
           tags={props.data.categories}
           className={itemDetailPageStyle.tags}
@@ -52,14 +52,22 @@ const TopPage: VFC<Props> = (props) => {
           ))}
         </div>
         <div className={itemDetailPageStyle.info}>
-          <span>{props.data.status}</span>
+          <span className={itemDetailPageStyle.statusBadge}>
+            {props.data.status}
+          </span>
           <span className={itemDetailPageStyle.price}>
             {createPriceString(props.data.price)}
           </span>
         </div>
+        <div className={itemDetailPageStyle.info}>
+          <p className={itemDetailPageStyle.label}>商品説明</p>
+          <p className={itemDetailPageStyle.description}>
+            {props.data.description}
+          </p>
+        </div>
         {props.data.status !== "売り切れ" && (
           <div className={itemDetailPageStyle.info}>
-            <p>
+            <p className={itemDetailPageStyle.term}>
               申し込む前に
               <Link href="/about">
                 <a className={itemDetailPageStyle.link}>このサイトについて</a>
