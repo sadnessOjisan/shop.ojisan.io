@@ -27,7 +27,7 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <Layout>
       <Head>
-        <title>{META_TAG_CONTENT.siteTitle}</title>
+        <title>{`${props.data.name} | ${META_TAG_CONTENT.siteTitle}`}</title>
         <meta
           property="og:url"
           content={`${META_TAG_CONTENT.origin}/items/${props.data.id}`}
