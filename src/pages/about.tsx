@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+import Head from "next/head";
 import { VFC } from "react";
 
 import { Layout } from "../components/layout";
@@ -7,17 +7,17 @@ import { aboutPageStyles } from "../style/about-page.css";
 
 const TermPage: VFC = () => (
   <div>
+    <Head>
+      <title>{`About | ${META_TAG_CONTENT.siteTitle}`}</title>
+      <meta property="og:url" content={`${META_TAG_CONTENT.origin}/about`} />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content={`about | ${META_TAG_CONTENT.siteTitle}`}
+      />
+      <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
+    </Head>
     <Layout>
-      <Head>
-        <title>{`About | ${META_TAG_CONTENT.siteTitle}`}</title>
-        <meta property="og:url" content={`${META_TAG_CONTENT.origin}/about`} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content={`about | ${META_TAG_CONTENT.siteTitle}`}
-        />
-        <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
-      </Head>
       <div className={aboutPageStyles.wrapper}>
         <h2 className={aboutPageStyles.midashi}>このHPについて</h2>
         <p className={aboutPageStyles.text}>
