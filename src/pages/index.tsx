@@ -3,6 +3,7 @@ import Link from "next/link";
 import { VFC } from "react";
 
 import { repository } from "../repository";
+import { rootPageStyles } from "../style/index.css";
 import { ShopItems } from "../validator";
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
 
 const TopPage: VFC<Props> = (props) => {
   return (
-    <div>
+    <div className={rootPageStyles.wrapper}>
       {props.data.contents.map((d) => (
         <Link href={`/items/${d.id}`} key={d.id}>
           <a>
