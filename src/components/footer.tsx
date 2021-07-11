@@ -18,7 +18,7 @@ export const Footer: VFC = () => (
           @sadnessOjisan
         </a>
       </p>
-      <p>This site use cookie for Google Analysis</p>
+      <p>This site use cookie for Google Analytics</p>
       <p>
         Source code is&nbsp;
         <a
