@@ -64,7 +64,7 @@ const TopPage: VFC<Props> = (props) => {
               <Link href="/about">
                 <a className={itemDetailPageStyle.link}>このサイトについて</a>
               </Link>
-              をご確認ください。
+              をご確認・ご同意ください。
             </p>
             <div className={itemDetailPageStyle.inputrow}>
               <input
@@ -73,7 +73,7 @@ const TopPage: VFC<Props> = (props) => {
                 id="confirm"
                 onChange={handleChangeConfirmCheckBox}
               />
-              <label htmlFor="confirm">確認した</label>
+              <label htmlFor="confirm">確認して、同意した</label>
             </div>
           </div>
         )}
