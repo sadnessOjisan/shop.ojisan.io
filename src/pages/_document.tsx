@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+
 import { META_TAG_CONTENT } from "../const";
 
 const css = ` *,
