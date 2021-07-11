@@ -31,7 +31,7 @@ const TermPage: VFC = () => (
         </p>
         <p className={aboutPageStyles.text}>
           申し込みは Google form
-          にてメールアドレスを入力することで行えます。またもしくは私の何らかの連絡方法を知っている方(Twitter,
+          にてメールアドレスを入力することで行えます。またもしくは販売者の何らかの連絡方法を知っている方(Twitter,
           Discord, Facebook Messenger
           など)は直接そちらから連絡を取っても構いません。
         </p>
