@@ -1,4 +1,5 @@
 import { VFC } from "react";
+
 import { tagsStyle } from "../style/tags.css";
 
 type Props = { tags: { id: string; name: string }[]; className?: string };
