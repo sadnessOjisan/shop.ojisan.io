@@ -1,10 +1,28 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
+const css = ` *,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+}`;
 class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <style>{css}</style>
+        </Head>
         <body>
           <Main />
           <NextScript />

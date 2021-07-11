@@ -3,6 +3,7 @@ import { VFC } from "react";
 import { itemListItemStyles } from "../style/item-list-item.css";
 
 type Props = {
+  className: string;
   data: {
     id: string;
     name: string;
@@ -14,21 +15,30 @@ type Props = {
 
 export const ItemListItem: VFC<Props> = (props) => {
   return (
-    <div className={itemListItemStyles.wrapper}>
-      <span>{props.data.name}</span>
-      <span>{props.data.price}円</span>
-      <span>
-        {props.data.categories.map((c) => (
-          <span key={c.id}>{c.name}</span>
-        ))}
-      </span>
-      {props.data.images.map((image) => (
-        <img
-          src={image.image.url}
-          key={image.image.url}
-          className={itemListItemStyles.image}
-        ></img>
-      ))}
+    <div className={`${itemListItemStyles.wrapper} ${props.className}`}>
+      <img
+        src={props.data.images[0].image.url}
+        className={itemListItemStyles.image}
+      />
+      <div className={itemListItemStyles.infoBox}>
+        <span
+          className={`${itemListItemStyles.infoBoxItem} ${itemListItemStyles.title}`}
+        >
+          {props.data.name}
+        </span>
+        <span className={itemListItemStyles.infoBoxItem}>
+          {props.data.price}円
+        </span>
+        <span
+          className={`${itemListItemStyles.infoBoxItem} ${itemListItemStyles.tips}`}
+        >
+          {props.data.categories.map((c) => (
+            <div key={c.id} className={itemListItemStyles.category}>
+              {c.name}
+            </div>
+          ))}
+        </span>
+      </div>
     </div>
   );
 };
