@@ -4,6 +4,7 @@ import { VFC } from "react";
 
 import { repository } from "../repository";
 import { ShopItems } from "../validator";
+import { rootPageStyles } from "./index.css";
 
 type Props = {
   data: ShopItems;
@@ -11,7 +12,7 @@ type Props = {
 
 const TopPage: VFC<Props> = (props) => {
   return (
-    <div>
+    <div className={rootPageStyles.wrapper}>
       {props.data.contents.map((d) => (
         <Link href={`/items/${d.id}`} key={d.id}>
           <a>
