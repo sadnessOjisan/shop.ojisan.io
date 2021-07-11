@@ -2,9 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 export const rootPageStyles = {
   wrapper: style({}),
-  keyVisual: style({
-    marginLeft: "-8px",
-  }),
+  keyVisual: style({ width: "100%" }),
   itemLink: style({
     textDecoration: "none",
     color: "initial",
@@ -12,4 +10,10 @@ export const rootPageStyles = {
   itemListWrapper: style({
     marginBottom: "16px",
   }),
+  title: style({
+    fontSize: "20px",
+    textAlign: "center",
+    margin: 16,
+  }),
+  items: style({ padding: 8 }),
 };
