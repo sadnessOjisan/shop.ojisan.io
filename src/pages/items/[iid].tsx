@@ -1,10 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
 
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
+import { META_TAG_CONTENT } from "../../const";
 import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
@@ -24,6 +26,31 @@ const TopPage: VFC<Props> = (props) => {
   } = useItemDetailPage(props.data.images);
   return (
     <Layout>
+      <Head>
+        <title>{META_TAG_CONTENT.siteTitle}</title>
+        <meta
+          property="og:url"
+          content={`${META_TAG_CONTENT.origin}/items/${props.data.id}`}
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content={`${props.data.name} | ${META_TAG_CONTENT.siteTitle}`}
+        />
+        <meta
+          property="og:description"
+          content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}！！sadnessOjisan の不用品を購入できるサイトです。`}
+        />
+        <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
+        <meta
+          property="og:image"
+          content={`${props.data.images[0].image.url}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={META_TAG_CONTENT.twitterName} />
+        <meta name="twitter:creator" content={META_TAG_CONTENT.twitterName} />
+      </Head>
+
       <div className={itemDetailPageStyle.wrapper}>
         <h2 className={itemDetailPageStyle.title}>{props.data.name}</h2>
         <Tags
@@ -70,7 +97,13 @@ const TopPage: VFC<Props> = (props) => {
             <p className={itemDetailPageStyle.term}>
               申し込む前に
               <Link href="/about">
-                <a className={itemDetailPageStyle.link}>このサイトについて</a>
+                <a
+                  className={itemDetailPageStyle.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  このサイトについて
+                </a>
               </Link>
               をご確認・ご同意ください。
             </p>
@@ -91,10 +124,7 @@ const TopPage: VFC<Props> = (props) => {
           </div>
         )}
         <div className={itemDetailPageStyle.info}>
-          <a
-            href=""
-            target="_blank"
-            rel="noreferrer"
+          <span
             className={itemDetailPageStyle.applyLink}
             style={{
               pointerEvents:
@@ -106,15 +136,20 @@ const TopPage: VFC<Props> = (props) => {
             <button
               className={itemDetailPageStyle.applyButton}
               disabled={props.data.status === "売り切れ" || !isConfirmed}
+              onClick={() => {
+                alert(
+                  "konekoneko6789@gmail.com に 購入希望の商品URLをメールして下さい。"
+                );
+              }}
             >
               申し込む
             </button>
-          </a>
+          </span>
         </div>
 
         <p className={itemDetailPageStyle.sideNote}>
-          ※Google form からの申し込み以外にも Twitter DM
-          からの申し込みも受け付けております。
+          ※Twitter DM / Discord / Messenger
+          などからの申し込みも受け付けております。
         </p>
       </div>
     </Layout>
