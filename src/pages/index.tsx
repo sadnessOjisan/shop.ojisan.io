@@ -1,7 +1,8 @@
 import { GetStaticProps } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
-import Image from "next/image";
+
 import { ItemListItem } from "../components/item-list-item";
 import { Layout } from "../components/layout";
 import { repository } from "../repository";
