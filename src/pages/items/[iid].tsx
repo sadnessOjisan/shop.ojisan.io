@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { VFC } from "react";
+
 import { Layout } from "../../components/layout";
 import { useItemDetailPage } from "../../hooks/use-item-detail-page";
-
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
 import { ShopItem } from "../../validator";
