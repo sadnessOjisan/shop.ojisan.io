@@ -10,7 +10,7 @@ const css = ` *,
 
 html {
   font-size: 62.5%;
-  font-family: Noto Sans JP, sans-serif;
+  font-family: sans-serif;
 }
 
 body {
@@ -21,12 +21,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap"
-            rel="stylesheet"
-          />
           <style>{css}</style>
         </Head>
         <body>

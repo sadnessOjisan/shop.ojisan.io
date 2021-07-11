@@ -18,8 +18,9 @@ const TopPage: VFC<Props> = (props) => {
       <Layout>
         {props.data.contents.map((d) => (
           <Link href={`/items/${d.id}`} key={d.id}>
-            <a>
+            <a className={rootPageStyles.itemLink}>
               <ItemListItem
+                className={rootPageStyles.itemListWrapper}
                 data={{
                   id: d.id,
                   name: d.name,
