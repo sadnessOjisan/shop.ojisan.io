@@ -35,9 +35,12 @@ const TopPage: VFC<Props> = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}。sadnessOjisan の不用品を購入できるサイトです。`}
+          content={`${props.data.name} | ${META_TAG_CONTENT.siteTitle}`}
         />
-        <meta property="og:description" content={props.data.description} />
+        <meta
+          property="og:description"
+          content={`${props.data.name} を買うなら ${META_TAG_CONTENT.siteTitle}！！sadnessOjisan の不用品を購入できるサイトです。`}
+        />
         <meta property="og:site_name" content={META_TAG_CONTENT.siteTitle} />
         <meta
           property="og:image"
