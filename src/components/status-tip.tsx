@@ -1,4 +1,5 @@
 import { VFC } from "react";
+
 import { statusTipStyles } from "../style/status-tip.css";
 
 export const StatusTip: VFC<{

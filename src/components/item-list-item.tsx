@@ -1,6 +1,6 @@
 import { VFC } from "react";
-import { itemDetailPageStyle } from "../style/item-detail-page.css";
 
+import { itemDetailPageStyle } from "../style/item-detail-page.css";
 import { itemListItemStyles } from "../style/item-list-item.css";
 import { createPriceString } from "../util/price";
 import { StatusTip } from "./status-tip";
