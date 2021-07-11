@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { headerStyle } from "../style/header.css";
 
 export const Header = () => {

@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { layoutStyles } from "../style/layout.css";
 
+import { layoutStyles } from "../style/layout.css";
 import { Header } from "./header";
 
 export const Layout: FC = (props) => {
