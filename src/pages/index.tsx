@@ -3,8 +3,8 @@ import Link from "next/link";
 import { VFC } from "react";
 
 import { repository } from "../repository";
+import { rootPageStyles } from "../style/index.css";
 import { ShopItems } from "../validator";
-import { rootPageStyles } from "./index.css";
 
 type Props = {
   data: ShopItems;
