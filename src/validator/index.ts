@@ -40,11 +40,11 @@ const schema = {
 };
 
 export const validator = {
-  validateShopItems: (data: unknown) => {
-    return schema.ShopItemsSchema.parse(data);
+  validateShopItems: (data: unknown): ShopItems => {
+    return schema.ShopItemsSchema.parse(data) as ShopItems;
   },
   validateShopItem: (data: unknown) => {
-    return schema.ShopItemSchema.parse(data);
+    return schema.ShopItemSchema.parse(data) as ShopItem;
   },
   validateShopItemIds: (data: unknown) => {
     return schema.ShopItemIdsSchema.parse(data);

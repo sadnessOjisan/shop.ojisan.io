@@ -7,6 +7,13 @@ export const headerStyle = {
     background: "white",
     display: "flex",
     alignItems: "center",
+    boxShadow: "0px -7px 11px 5px black;",
+    position: "fixed",
+    width: "100%",
+    top: 0,
+    left: 0,
+    fontFamily: "cursive",
+    fontStyle: "italic",
   }),
   title: style({
     fontWeight: "bold",

@@ -15,5 +15,5 @@ export const rootPageStyles = {
     textAlign: "center",
     margin: 16,
   }),
-  items: style({ padding: 8 }),
+  items: style({ padding: "0px 8px 8px 8px" }),
 };

@@ -7,10 +7,11 @@ import { ItemListItem } from "../components/item-list-item";
 import { Layout } from "../components/layout";
 import { repository } from "../repository";
 import { rootPageStyles } from "../style/index.css";
+import { RecursiveRequired } from "../type/util";
 import { ShopItems } from "../validator";
 
 type Props = {
-  data: ShopItems;
+  data: RecursiveRequired<ShopItems>;
 };
 
 const TopPage: VFC<Props> = (props) => {
@@ -29,12 +30,9 @@ const TopPage: VFC<Props> = (props) => {
                     id: d.id,
                     name: d.name,
                     price: d.price,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     categories: d.categories,
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     images: d.images,
+                    status: d.status,
                   }}
                 />
               </a>

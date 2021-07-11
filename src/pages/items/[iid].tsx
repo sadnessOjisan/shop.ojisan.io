@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { VFC } from "react";
 
 import { Layout } from "../../components/layout";
@@ -7,6 +8,7 @@ import { Tags } from "../../components/tags";
 import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
+import { createPriceString } from "../../util/price";
 import { ShopItem } from "../../validator";
 
 type Props = {
@@ -14,13 +16,16 @@ type Props = {
 };
 
 const TopPage: VFC<Props> = (props) => {
-  const { selectedImage, setSelectedImageIdx } = useItemDetailPage(
-    props.data.images
-  );
+  const {
+    selectedImage,
+    setSelectedImageIdx,
+    isConfirmed,
+    handleChangeConfirmCheckBox,
+  } = useItemDetailPage(props.data.images);
   return (
     <Layout>
       <div className={itemDetailPageStyle.wrapper}>
-        <h2>{props.data.name}</h2>
+        <h2 className={itemDetailPageStyle.title}>{props.data.name}</h2>
         <Tags
           tags={props.data.categories}
           className={itemDetailPageStyle.tags}
@@ -47,9 +52,39 @@ const TopPage: VFC<Props> = (props) => {
           ))}
         </div>
         <div className={itemDetailPageStyle.info}>
-          <span>{props.data.status}</span>
-          <span className={itemDetailPageStyle.price}>{props.data.price}</span>
+          <span className={itemDetailPageStyle.statusBadge}>
+            {props.data.status}
+          </span>
+          <span className={itemDetailPageStyle.price}>
+            {createPriceString(props.data.price)}
+          </span>
         </div>
+        <div className={itemDetailPageStyle.info}>
+          <p className={itemDetailPageStyle.label}>商品説明</p>
+          <p className={itemDetailPageStyle.description}>
+            {props.data.description}
+          </p>
+        </div>
+        {props.data.status !== "売り切れ" && (
+          <div className={itemDetailPageStyle.info}>
+            <p className={itemDetailPageStyle.term}>
+              申し込む前に
+              <Link href="/about">
+                <a className={itemDetailPageStyle.link}>このサイトについて</a>
+              </Link>
+              をご確認・ご同意ください。
+            </p>
+            <div className={itemDetailPageStyle.inputrow}>
+              <input
+                type="checkbox"
+                style={{ marginRight: 8 }}
+                id="confirm"
+                onChange={handleChangeConfirmCheckBox}
+              />
+              <label htmlFor="confirm">確認して、同意した</label>
+            </div>
+          </div>
+        )}
         <div>
           <a
             href=""
@@ -58,12 +93,14 @@ const TopPage: VFC<Props> = (props) => {
             className={itemDetailPageStyle.applyLink}
             style={{
               pointerEvents:
-                props.data.status === "売り切れ" ? "none" : "initial",
+                props.data.status === "売り切れ" || !isConfirmed
+                  ? "none"
+                  : "initial",
             }}
           >
             <button
               className={itemDetailPageStyle.applyButton}
-              disabled={props.data.status === "売り切れ"}
+              disabled={props.data.status === "売り切れ" || !isConfirmed}
             >
               申し込む
             </button>
