@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 export const itemListItemStyles = {
-  wrapper: style({ display: "flex", height: "120px", alignItems: "center" }),
+  wrapper: style({ display: "flex", height: "144px", alignItems: "center" }),
   image: style({ width: "120px", height: "120px", objectFit: "contain" }),
   infoBox: style({
     display: "flex",
@@ -11,9 +11,11 @@ export const itemListItemStyles = {
   }),
   infoBoxItem: style({
     marginBottom: "8px",
+    fontSize: 12,
   }),
   title: style({
     fontWeight: "bold",
+    fontSize: 12,
   }),
   tips: style({ display: "flex" }),
   category: style({

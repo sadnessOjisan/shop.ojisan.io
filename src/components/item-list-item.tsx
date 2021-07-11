@@ -1,7 +1,9 @@
 import { VFC } from "react";
+import { itemDetailPageStyle } from "../style/item-detail-page.css";
 
 import { itemListItemStyles } from "../style/item-list-item.css";
 import { createPriceString } from "../util/price";
+import { StatusTip } from "./status-tip";
 import { Tags } from "./tags";
 
 type Props = {
@@ -10,6 +12,7 @@ type Props = {
     id: string;
     name: string;
     price: number;
+    status: "販売中" | "商談中" | "売り切れ";
     categories: { id: string; name: string }[];
     images: { image: { url: string } }[];
   };
@@ -23,6 +26,10 @@ export const ItemListItem: VFC<Props> = (props) => {
         className={itemListItemStyles.image}
       />
       <div className={itemListItemStyles.infoBox}>
+        <StatusTip
+          status={props.data.status}
+          className={itemListItemStyles.infoBoxItem}
+        />
         <span
           className={`${itemListItemStyles.infoBoxItem} ${itemListItemStyles.title}`}
         >

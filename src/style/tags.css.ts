@@ -7,5 +7,9 @@ export const tagsStyle = {
     padding: "2px 8px",
     marginLeft: "4px",
     borderRadius: "4px",
+    fontSize: 12,
+    ":first-child": {
+      marginLeft: 0,
+    },
   }),
 };

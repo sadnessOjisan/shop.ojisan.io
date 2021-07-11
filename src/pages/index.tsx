@@ -32,6 +32,7 @@ const TopPage: VFC<Props> = (props) => {
                     price: d.price,
                     categories: d.categories,
                     images: d.images,
+                    status: d.status,
                   }}
                 />
               </a>

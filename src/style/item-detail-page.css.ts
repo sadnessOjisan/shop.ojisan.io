@@ -16,10 +16,10 @@ export const itemDetailPageStyle = {
   slider: style({
     display: "flex",
     flexWrap: "wrap",
-    width: 360,
+    width: 240,
     margin: "auto",
   }),
-  imageTile: style({ width: 120, height: 120 }),
+  imageTile: style({ width: 80, height: 80 }),
   imageWrapper: style({}),
   applyButton: style({
     width: "200px",
