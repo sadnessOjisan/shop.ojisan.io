@@ -2,11 +2,12 @@ import { style } from "@vanilla-extract/css";
 
 export const rootPageStyles = {
   wrapper: style({}),
+  keyVisual: style({
+    marginLeft: "-8px",
+  }),
   itemLink: style({
     textDecoration: "none",
-    ":visited": {
-      color: "initial",
-    },
+    color: "initial",
   }),
   itemListWrapper: style({
     marginBottom: "16px",

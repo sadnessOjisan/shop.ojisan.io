@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import { VFC } from "react";
-
+import Image from "next/image";
 import { ItemListItem } from "../components/item-list-item";
 import { Layout } from "../components/layout";
 import { repository } from "../repository";
@@ -16,6 +16,7 @@ const TopPage: VFC<Props> = (props) => {
   return (
     <div className={rootPageStyles.wrapper}>
       <Layout>
+        <img src="/shop.png" className={rootPageStyles.keyVisual} />
         {props.data.contents.map((d) => (
           <Link href={`/items/${d.id}`} key={d.id}>
             <a className={rootPageStyles.itemLink}>
