@@ -15,6 +15,8 @@ const ShopItemSchema = z.object({
   ),
   price: z.number(),
   createdAt: z.string(),
+  description: z.string(),
+  categories: z.array(z.object({ id: z.string(), name: z.string() })),
 });
 
 const ShopItemsSchema = z.object({
