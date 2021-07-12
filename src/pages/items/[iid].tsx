@@ -138,7 +138,7 @@ const TopPage: VFC<Props> = (props) => {
               disabled={props.data.status === "売り切れ" || !isConfirmed}
               onClick={() => {
                 alert(
-                  "konekoneko6789@gmail.com に 購入希望の商品URLをメールして下さい。"
+                  "Twitter DM / Discord / Messenger などから僕に連絡を下さい。"
                 );
               }}
             >
@@ -146,11 +146,6 @@ const TopPage: VFC<Props> = (props) => {
             </button>
           </span>
         </div>
-
-        <p className={itemDetailPageStyle.sideNote}>
-          ※Twitter DM / Discord / Messenger
-          などからの申し込みも受け付けております。
-        </p>
       </div>
     </Layout>
   );
