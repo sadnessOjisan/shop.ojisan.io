@@ -30,11 +30,10 @@ const TermPage: VFC = () => (
           はそろそろ引っ越したいです。荷物を減らしたいです。なので僕の荷物の不用品情報サイトを作りました。通信販売サイトではありません。
         </p>
         <p className={aboutPageStyles.text}>
-          ECそのものを作るのは骨が折れるので、
           <a href="https://microcms.io/" className={aboutPageStyles.link}>
             CMS
           </a>
-          に在庫を補充・更新したらHPが更新されるJAMStackサイトを作りました。ただ、工数の都合で決済は実装していないため、もしくはTwitterDMなどでのやりとりにて決済・配送をします。
+          に在庫を補充・更新したらHPが更新されるJAMStackサイトです。決済手段は実装していないため、TwitterDMなどでのやりとりにて決済・配送をします。
         </p>
         <h2 className={aboutPageStyles.midashi}>ルール</h2>
         <p className={aboutPageStyles.text}>
@@ -59,13 +58,43 @@ const TermPage: VFC = () => (
           にてお願いします。ただし、販売者とプライベートで会ったことがある方は手渡しや他の配送方法でも可能であり、販売者としても助かります。
         </p>
         <p className={aboutPageStyles.text}>
-          このルールは予告なく変更する可能性があります。
-        </p>
-        <p className={aboutPageStyles.text}>
           申込者からの連絡に応じて価格や配送時期を決める都合上、特定商取引法に基づく表記に関する事項は、その連絡の際に問い合わせていただけると遅延なく提示いたします。
         </p>
         <p className={aboutPageStyles.text}>
           堅苦しいやりとりはしたくないので、知り合いを優先して取引します。
+        </p>
+        <p className={aboutPageStyles.text}>
+          このルールは予告なく変更する可能性があります。
+        </p>
+        <h2 className={aboutPageStyles.midashi}>特定商取引法に基づく表記</h2>
+        <p className={aboutPageStyles.text}>
+          そもそも通信販売サイトではありませんが、通信販売サイトであると仮定すると以下の通りとなります。
+        </p>
+        <p className={aboutPageStyles.text}>URL: https://shop.ojisan.io</p>
+        <p className={aboutPageStyles.text}>EMail: konekoneko6789@gmail.com</p>
+        <p className={aboutPageStyles.text}>
+          販売価格: 各商品ページの参考価格に基づき、協議のもと決定する
+        </p>
+        <p className={aboutPageStyles.text}>
+          支払い方法: PayPay / LinePay / 銀行振り込み による先払い
+        </p>
+        <p className={aboutPageStyles.text}>
+          商品代金以外の必要経費: 振込手数料、決済手数料などの支払い手数料
+        </p>
+        <p className={aboutPageStyles.text}>
+          商品引き渡し時期: 販売者・購入者の協議のもと決定する
+        </p>
+        <p className={aboutPageStyles.text}>
+          商品の引き渡し方法: 郵送・もしくは手渡し
+        </p>
+        <p className={aboutPageStyles.text}>
+          不良品について: 1週間以内であれば返品可能
+        </p>
+        <p className={aboutPageStyles.text}>
+          返品について: 不良品の場合を除いて不可
+        </p>
+        <p className={aboutPageStyles.text}>
+          ※上記以外の事項に関しましては、お取引の際に請求があれば遅延なく提示いたします。
         </p>
         <h2 className={aboutPageStyles.midashi}>プライバシーポリシー</h2>
         <p className={aboutPageStyles.text}>
