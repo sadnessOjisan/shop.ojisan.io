@@ -19,7 +19,7 @@ const TermPage: VFC = () => (
     </Head>
     <Layout>
       <div className={aboutPageStyles.wrapper}>
-        <h2 className={aboutPageStyles.midashi}>このHPについて</h2>
+        <h2 className={aboutPageStyles.midashi}>このサイトについて</h2>
         <p className={aboutPageStyles.text}>
           <a
             href="https://twitter.com/sadnessOjisan"
