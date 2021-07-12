@@ -62,7 +62,10 @@ const TermPage: VFC = () => (
           このルールは予告なく変更する可能性があります。
         </p>
         <p className={aboutPageStyles.text}>
-          このような堅苦しいやりとりはしたくないので、知り合いを優先して取引します。
+          申込者からの連絡に応じて価格や配送時期を決める都合上、特定商取引法に基づく表記に関する事項は、その連絡の際に問い合わせていただけると遅延なく提示いたします。
+        </p>
+        <p className={aboutPageStyles.text}>
+          堅苦しいやりとりはしたくないので、知り合いを優先して取引します。
         </p>
         <h2 className={aboutPageStyles.midashi}>プライバシーポリシー</h2>
         <p className={aboutPageStyles.text}>
