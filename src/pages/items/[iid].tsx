@@ -83,7 +83,7 @@ const TopPage: VFC<Props> = (props) => {
             {props.data.status}
           </span>
           <span className={itemDetailPageStyle.price}>
-            {createPriceString(props.data.price)}
+            参考価格: {createPriceString(props.data.price)}
           </span>
         </div>
         <div className={itemDetailPageStyle.info}>
