@@ -1,8 +1,9 @@
+import Parser from "markdown-it";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
+import sanitizeHtml from "sanitize-html";
 
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
@@ -12,6 +13,8 @@ import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
 import { createPriceString } from "../../util/price";
 import { ShopItem } from "../../validator";
+
+const mdParser = new Parser({ linkify: true });
 
 type Props = {
   data: ShopItem;
@@ -87,10 +90,11 @@ const TopPage: VFC<Props> = (props) => {
           </span>
         </div>
         <div className={itemDetailPageStyle.info}>
-          <p className={itemDetailPageStyle.label}>商品説明</p>
-          <p className={itemDetailPageStyle.description}>
-            {props.data.description}
-          </p>
+          <p className={itemDetailPageStyle.label}>商品説明</p>{" "}
+          <div
+            className={itemDetailPageStyle.description}
+            dangerouslySetInnerHTML={{ __html: props.data.description }}
+          ></div>
         </div>
         {props.data.status !== "売り切れ" && (
           <div className={itemDetailPageStyle.info}>
@@ -167,9 +171,11 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const itemId = context.params ? context.params["iid"] : undefined;
   if (typeof itemId !== "string") throw new Error("invalid path");
   const data = await repository.getItemById(itemId);
+  const parsedDescription = mdParser.render(data.description);
+  const sanitizedHtml = sanitizeHtml(parsedDescription);
   return {
     props: {
-      data,
+      data: { ...data, description: sanitizedHtml },
     },
   };
 };
