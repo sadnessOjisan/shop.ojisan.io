@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { VFC } from "react";
+import sanitizeHtml from "sanitize-html";
 
 import { Layout } from "../../components/layout";
 import { Tags } from "../../components/tags";
@@ -13,7 +14,7 @@ import { itemDetailPageStyle } from "../../style/item-detail-page.css";
 import { createPriceString } from "../../util/price";
 import { ShopItem } from "../../validator";
 
-const mdParser = new Parser();
+const mdParser = new Parser({ linkify: true });
 
 type Props = {
   data: ShopItem;
@@ -170,9 +171,10 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   if (typeof itemId !== "string") throw new Error("invalid path");
   const data = await repository.getItemById(itemId);
   const parsedDescription = mdParser.render(data.description);
+  const sanitizedHtml = sanitizeHtml(parsedDescription);
   return {
     props: {
-      data: { ...data, description: parsedDescription },
+      data: { ...data, description: sanitizedHtml },
     },
   };
 };
