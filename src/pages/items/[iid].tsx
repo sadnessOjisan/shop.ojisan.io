@@ -1,6 +1,6 @@
+import Parser from "markdown-it";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { VFC } from "react";
 
@@ -12,6 +12,8 @@ import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
 import { createPriceString } from "../../util/price";
 import { ShopItem } from "../../validator";
+
+const mdParser = new Parser();
 
 type Props = {
   data: ShopItem;
@@ -167,9 +169,10 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const itemId = context.params ? context.params["iid"] : undefined;
   if (typeof itemId !== "string") throw new Error("invalid path");
   const data = await repository.getItemById(itemId);
+  const parsedDescription = mdParser.render(data.description);
   return {
     props: {
-      data,
+      data: { ...data, description: parsedDescription },
     },
   };
 };
