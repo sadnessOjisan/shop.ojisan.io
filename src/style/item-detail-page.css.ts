@@ -99,6 +99,7 @@ export const itemDetailPageStyle = {
     textAlign: "left",
     width: "100%",
     marginTop: 8,
+    overflowWrap: "break-word",
     "@media": {
       "screen and (min-width: 768px)": {
         fontSize: 16,
