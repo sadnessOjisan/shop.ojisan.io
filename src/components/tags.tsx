@@ -9,7 +9,7 @@ export const Tags: VFC<Props> = (props) => {
     <span className={`${props.className} ${tagsStyle.tips}`}>
       {props.tags.map((c) => (
         <Link key={c.id} href={`/tags/${c.id}`}>
-          <a>
+          <a className={tagsStyle.link}>
             <div className={tagsStyle.category}>{c.name}</div>
           </a>
         </Link>
