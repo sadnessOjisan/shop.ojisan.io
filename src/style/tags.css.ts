@@ -12,4 +12,11 @@ export const tagsStyle = {
       marginLeft: 0,
     },
   }),
+  link: style({
+    color: "black",
+    textDecoration: "none",
+    ":visited": {
+      color: "black",
+    },
+  }),
 };

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { VFC } from "react";
 
 import { tagsStyle } from "../style/tags.css";
@@ -7,9 +8,11 @@ export const Tags: VFC<Props> = (props) => {
   return (
     <span className={`${props.className} ${tagsStyle.tips}`}>
       {props.tags.map((c) => (
-        <div key={c.id} className={tagsStyle.category}>
-          {c.name}
-        </div>
+        <Link key={c.id} href={`/tags/${c.id}`}>
+          <a className={tagsStyle.link}>
+            <div className={tagsStyle.category}>{c.name}</div>
+          </a>
+        </Link>
       ))}
     </span>
   );

@@ -33,10 +33,21 @@ const ShopItemIdsSchema = z.object({
   ),
 });
 
+const CategorySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+});
+
+const CategoriesSchema = z.object({
+  contents: z.array(CategorySchema),
+});
+
 const schema = {
   ShopItemsSchema,
   ShopItemSchema,
   ShopItemIdsSchema,
+  CategorySchema,
+  CategoriesSchema,
 };
 
 export const validator = {
@@ -49,9 +60,16 @@ export const validator = {
   validateShopItemIds: (data: unknown) => {
     return schema.ShopItemIdsSchema.parse(data);
   },
+  validateCategory: (data: unknown) => {
+    return schema.CategorySchema.parse(data);
+  },
+  validateCategories: (data: unknown) => {
+    return schema.CategoriesSchema.parse(data);
+  },
 };
 
 export type ShopItems = RecursiveRequired<
   z.infer<Required<typeof schema.ShopItemsSchema>>
 >;
 export type ShopItem = RecursiveRequired<z.infer<typeof schema.ShopItemSchema>>;
+export type Tag = RecursiveRequired<z.infer<typeof schema.CategorySchema>>;
