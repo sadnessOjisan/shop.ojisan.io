@@ -1,17 +1,14 @@
-import Parser from "markdown-it";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { VFC } from "react";
-import sanitizeHtml from "sanitize-html";
 
+import { ItemListItem } from "../../components/item-list-item";
 import { Layout } from "../../components/layout";
-import { Tags } from "../../components/tags";
 import { META_TAG_CONTENT } from "../../const";
-import { useItemDetailPage } from "../../hooks/use-item-detail-page";
 import { repository } from "../../repository";
 import { itemDetailPageStyle } from "../../style/item-detail-page.css";
-import { createPriceString } from "../../util/price";
+import { tagDetailPageStyle } from "../../style/tag-detail-page.css";
 import { ShopItems, Tag } from "../../validator";
 
 type Props = {
@@ -44,7 +41,26 @@ const TagDetail: VFC<Props> = (props) => {
       </Head>
 
       <div className={itemDetailPageStyle.wrapper}>
-        {JSON.stringify(props.data)}
+        <h2 className={tagDetailPageStyle.title}>{props.tag.name}</h2>
+        <div className={tagDetailPageStyle.items}>
+          {props.data.contents.map((d) => (
+            <Link href={`/items/${d.id}`} key={d.id}>
+              <a className={tagDetailPageStyle.itemLink}>
+                <ItemListItem
+                  className={tagDetailPageStyle.itemListWrapper}
+                  data={{
+                    id: d.id,
+                    name: d.name,
+                    price: d.price,
+                    categories: d.categories,
+                    images: d.images,
+                    status: d.status,
+                  }}
+                />
+              </a>
+            </Link>
+          ))}
+        </div>
       </div>
     </Layout>
   );
